@@ -1,0 +1,27 @@
+{% extends 'layouts/default.twig' %} {% block body %}
+<section class="container" id="add-form">
+    <div class="mb-3 col-sm-11 col-lg-4">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email" data-required="true" data-max-length="20">
+    </div>
+    <div class="mb-3 col-sm-11 col-lg-4   ">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Name Surname" name="name" data-required="true" data-max-length="20">
+    </div>
+    <div class="mb-3 col-sm-11 col-lg-4">
+        <label for="gender" class="form-label">Gender</label>
+        <select class="form-select" id="gender" name="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+    </div>
+    <div class="mb-4 col-sm-11 col-lg-4">
+        <label for="status" class="form-label">Status</label>
+        <select class="form-select" id="status" name="status">
+            <option value="active">Active user</option>
+            <option value="inactive">Inactive user</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary" onClick=addUser()>Submit</button>
+</section>
+{% endblock %}

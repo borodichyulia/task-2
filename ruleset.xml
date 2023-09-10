@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<ruleset name="ruleset">
+    <description>Rules for code quality</description>
+
+    <file>tasks/</file>
+    <file>tests/</file>
+
+    <exclude-pattern type="relative">*base-paths.php</exclude-pattern>
+    <exclude-pattern type="relative">*base-config.php</exclude-pattern>
+
+    <config name="installed_paths" value="../../escapestudios/symfony2-coding-standard,../../slevomat/coding-standard"/>
+
+    <!-- Include the whole Symfony standard -->
+    <rule ref="Symfony">
+        <exclude name="Symfony.Commenting.License"/>
+        <exclude name="Symfony.Commenting.Annotations.Invalid"/>
+        <exclude name="Symfony.Functions.ReturnType.Invalid"/>
+        <exclude name="Symfony.Functions.Arguments.Invalid"/>
+        <exclude name="Symfony.Arrays.MultiLineArrayComma.Invalid"/>
+        <exclude name="Symfony.ControlStructure.YodaConditions.Invalid"/>
+        <exclude name="Symfony.Formatting.BlankLineBeforeReturn.Invalid"/>
+        <exclude name="Squiz.Functions.MultiLineFunctionDeclaration.ContentAfterBrace"/>
+        <exclude name="Squiz.WhiteSpace.ScopeClosingBrace.ContentBefore"/>
+        <exclude name="PEAR.Functions.FunctionCallSignature"/>
+        <exclude name="PEAR.WhiteSpace.ScopeClosingBrace.Line"/>
+    </rule>
+    <rule ref="Symfony.Formatting.BlankLineBeforeReturn"/>
+
+    <rule ref="Generic.Commenting.DocComment">
+        <exclude name="Generic.Commenting.DocComment.NonParamGroup" />
+        <exclude name="Generic.Commenting.DocComment.MissingShort" />
+        <exclude name="Generic.Commenting.DocComment.TagValueIndent" />
+        <exclude name="Generic.Commenting.DocComment.ContentAfterOpen" />
+        <exclude name="Generic.Commenting.DocComment.ContentBeforeClose" />
+        <exclude name="Generic.Commenting.DocComment.SpacingBeforeTags" />
+        <exclude name="Generic.Commenting.DocComment.TagValueIndent" />
+    </rule>
+    <rule ref="Generic.Classes.DuplicateClassName"/>
+    <rule ref="Generic.CodeAnalysis.EmptyStatement"/>
+    <rule ref="Generic.CodeAnalysis.ForLoopShouldBeWhileLoop"/>
+    <rule ref="Generic.CodeAnalysis.JumbledIncrementer"/>
+    <rule ref="Generic.CodeAnalysis.UnconditionalIfStatement"/>
+    <rule ref="Generic.CodeAnalysis.UnnecessaryFinalModifier"/>
+    <rule ref="Generic.Metrics.NestingLevel"/>
+    <rule ref="Generic.Functions.CallTimePassByReference"/>
+    <rule ref="Generic.Metrics.CyclomaticComplexity"/>
+    <rule ref="Generic.PHP.DeprecatedFunctions"/>
+    <rule ref="Generic.PHP.DisallowShortOpenTag"/>
+    <rule ref="Generic.PHP.ForbiddenFunctions"/>
+    <rule ref="Generic.CodeAnalysis.UnusedFunctionParameter"/>
+    <rule ref="Generic.CodeAnalysis.UselessOverridingMethod"/>
+    <rule ref="Generic.ControlStructures.InlineControlStructure"/>
+    <rule ref="Generic.NamingConventions.UpperCaseConstantName"/>
+    <rule ref="Generic.Files.LineLength">
+        <properties>
+            <property name="lineLimit" value="80"/>
+            <property name="absoluteLineLimit" value="120"/>
+        </properties>
+    </rule>
+
+    <rule ref="MySource.PHP.EvalObjectFactory"/>
+
+    <rule ref="PSR1.Files.SideEffects"/>
+    <rule ref="PSR2.Methods.MethodDeclaration"/>
+    <rule ref="PSR2.Classes.PropertyDeclaration"/>
+    <rule ref="PSR2.ControlStructures.ElseIfDeclaration"/>
+    <rule ref="PSR2.ControlStructures.ControlStructureSpacing"/>
+    <rule ref="PSR2.Namespaces.NamespaceDeclaration"/>
+    <rule ref="PSR12.Classes.ClosingBrace"/>
+    <rule ref="PSR12.Files.OpenTag"/>
+    <rule ref="PSR12.Keywords.ShortFormTypeKeywords"/>
+    <rule ref="PSR12.Namespaces.CompoundNamespaceDepth"/>
+    <rule ref="PSR12.Classes.ClassInstantiation"/>
+    <rule ref="PSR12.Files.ImportStatement"/>
+    <rule ref="PSR12.Functions.ReturnTypeDeclaration"/>
+    <rule ref="PSR12.Traits.UseDeclaration"/>
+    <rule ref="PSR12.Files.FileHeader"/>
+
+    <rule ref="Squiz.Strings.DoubleQuoteUsage"/>
+    <rule ref="Squiz.Strings.ConcatenationSpacing">
+        <properties>
+            <property name="spacing" value="1"/>
+            <property name="ignoreNewlines" value="true"/>
+        </properties>>
+    </rule>
+    <rule ref="Squiz.Classes.ValidClassName">
+        <exclude-pattern>tasks/*/database/migrations/*</exclude-pattern>
+    </rule>
+
+    <rule ref="SlevomatCodingStandard.Variables.UselessVariable"/>
+    <rule ref="SlevomatCodingStandard.Commenting.DocCommentSpacing"/>
+    <rule ref="SlevomatCodingStandard.Namespaces.UnusedUses"/>
+    <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHintSpacing"/>
+    <rule ref="SlevomatCodingStandard.Functions.UselessParameterDefaultValue"/>
+    <rule ref="SlevomatCodingStandard.ControlStructures.UselessIfConditionWithReturn"/>
+    <rule ref="SlevomatCodingStandard.Whitespaces.DuplicateSpaces">
+        <properties>
+            <property name="ignoreSpacesInComment" value="true"/>
+        </properties>
+    </rule>
+    <rule ref="SlevomatCodingStandard.Variables.UnusedVariable">
+        <properties>
+            <property name="ignoreUnusedValuesWhenOnlyKeysAreUsedInForeach" value="true"/>
+        </properties>
+    </rule>
+</ruleset>

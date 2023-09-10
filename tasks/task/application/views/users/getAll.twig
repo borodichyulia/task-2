@@ -1,0 +1,81 @@
+{% extends 'layouts/default.twig' %} {% block body %}
+
+<section class="container-lg">
+    <div class="d-flex justify-content-between mb-2 col-lg-3 col-md-5 col-sm-6 col-11" style="padding-left: 0.5rem">
+        <div class="d-flex justify-content-between align-items-center">
+            <input class="form-check-input" style="margin-right: 0.7rem" type=checkbox onClick="check_uncheck_checkbox(this.checked)" id="checkAll" />
+            <label class="form-check-label fs-6 fw-semibold" for="checkAll">
+                Select all
+            </label>
+        </div>
+        <button type=button style="display: none !important" class='btn btn-outline-danger d-flex justify-content-end' id="button_delete" onClick=deleteCheckedUsers()>Delete multiple users</button>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col"> </th>
+                <th scope="col">Email</th>
+                <th scope="col">Name</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Status</th>
+                <th scope="col">View</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>
+                        <div class=form-check>
+                            <input class=form-check-input type=checkbox value={{ user['id'] }} name=user onclick=getIdCheckedUsers({{ user['id'] }}) id='{{ user['id'] }}' />
+                        </div>
+                    </td>
+                    <td>{{ user['email'] }}</td>
+                    <td>{{ user['name'] }} </td>
+                    <td>{{ user['gender'] }}</td>
+                    <td>{{ user['status'] }}</td>
+                    <td><button type=button class='btn btn-outline-primary btn-sm' onClick=document.location.href='users/{{ user['id'] }}'>View</button></td>
+                    <td><button type=button class='btn btn-danger btn-sm' data-bs-toggle=modal data-bs-target=#exampleModal onClick=getCurrentUserId({{ user['id'] }})>Delete</button></td>
+                  
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <nav class="d-flex justify-content-center">
+        <ul class="pagination">
+            <li class="page-item {{ pogination[0] == 1 ? 'disabled' : '' }}">
+                <a class="page-link" href="?page={{ pogination[0] - 1 }}">Previous</a>
+            </li>
+            {% for i in 1..(pogination[1]) %}
+            <li class="page-item {{ i == pogination[0] ? 'active' : '' }} ">
+                <a class="page-link" href="?page={{ i }}"> {{ i }}</a>
+            </li>
+            {% endfor %}
+            <li class="page-item {{ pogination[0] == pogination[1] ? 'disabled' : ''}} ">
+                <a class="page-link" href="?page={{ pogination[0] + 1}}">Next</a>
+            </li>
+        </ul>
+    </nav>
+</section>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Deletion confirmation</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                You want to delete?
+            </div>
+            <div class="modal-footer">
+                <input type="hidden" id="userId">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" onClick=deleteUser()>Yes</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

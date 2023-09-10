@@ -1,0 +1,16 @@
+{% extends 'layouts/default.twig' %} {% block body %}
+<section class="container mt-5 d-flex flex-column col-12">
+  <div class="btn-group col-1 mb-5">
+    <button type="button" class="btn btn-outline-dark btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+      Action
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="?source=1">Local database</a></li>
+      <li><a class="dropdown-item" href="?source=0">gorest REST API</a></li>
+    </ul>
+  </div>
+  <a href="users/create" class="btn btn-outline-primary btn-lg col-2" role="button"
+    >Add new user</a
+  >
+</section>
+{% endblock %}

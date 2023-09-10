@@ -1,0 +1,11 @@
+{% extends 'layouts/default.twig' %} {% block body %}
+<section class="container">
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item"><b>Email: </b>{{ user['email'] }}</li>
+        <li class="list-group-item"><b>Name: </b>{{ user['name'] }}</li>
+        <li class="list-group-item"><b>Gender: </b>{{ user['gender'] }}</li>
+        <li class="list-group-item"><b>Status: </b>{{ user['status']}}</li>
+    </ul>
+    <button type=button class='btn btn-primary col-lg-2 col-sm-3 col-7 mt-4' onClick= "document.location.href='edit/{{user['id']}}'" ?>Edit</button>
+</section>
+{% endblock %}

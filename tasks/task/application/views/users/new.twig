@@ -1,0 +1,12 @@
+{% extends 'layouts/default.twig' %} {% block body %}
+
+<section class="container d-flex justify-content-lg-start justify-content-center">
+    <ul class="list-group list-group-flush col-lg-6 col-sm-10 col-12">
+        <li class="list-group-item"><b>Email: </b>{{ user['email'] }}</li>
+        <li class="list-group-item"><b>Name: </b>{{ user['name'] }}</li>
+        <li class="list-group-item"><b>Gender: </b>{{ user['gender'] }}</li>
+        <li class="list-group-item"><b>Status: </b>{{ user['status'] }}</li>
+    </ul>
+</section>
+
+{% endblock %}
